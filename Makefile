@@ -1,5 +1,7 @@
 .PHONY: all
 
+HOSTS=*heroeswm.ru *heroeswm.com *lordswm.com
+
 SCRIPT=hwm_pl_info_enchancer.user.js
 define CONVERT
 	sub conv {\
@@ -9,7 +11,21 @@ define CONVERT
 	$$conv = new Text::Iconv("utf-8", "utf-16be");\
 	while (<>) {\
 		s/([\x80-\xFF]+)/conv("$$1");/ge;\
-		print\
+		print;\
+	};
+endef
+
+define SETHOST
+	while (<>) {\
+		if ($$_ =~ /###HOST###/) {\
+			for $$host (qw{${HOSTS}}) {\
+				$$new = $$_;\
+				$$new =~ s/###HOST###/$$host/g;\
+				print $$new;\
+			}\
+		} else {\
+			print; \
+		}\
 	};
 endef
 
@@ -20,7 +36,7 @@ all: ${SCRIPT}
 
 ${SCRIPT}: header.js userscript.coffee
 	coffee -c userscript.coffee
-	cat header.js > ${SCRIPT}
+	perl -e '${SETHOST}' ./header.js > ${SCRIPT}
 	echo >> ${SCRIPT}
 	#cat jquery.min.js >> ${SCRIPT}
 	echo >> ${SCRIPT}
