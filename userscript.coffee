@@ -740,7 +740,7 @@ make_ap = ->
 		if @.src.indexOf('/i/s_initiative.gif') != -1 && !left_td?
 			left_td = @.parentNode.parentNode.parentNode
 			left_td = undefined if $(left_td).find('img').length < 7
-		else if (@.src.match(/\/i\/book\d?\.jpg/))
+		else if (@.src.match(/\/i\/transport\/\d\.jpg/))
 			arts_td = @.parentNode.parentNode.parentNode
 
 	return unless left_td? and arts_td?
