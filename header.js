@@ -16,6 +16,7 @@
  *
  * Script itself:
  * http://hwm.kocharin.ru/gm/hwm_pl_info_enchancer/
+ * https://github.com/heroeswm/hwm_pl_info_enchancer
  *
  * Support topic:
  * http://heroeswm.co.cc/forum_messages.pl?id=437
