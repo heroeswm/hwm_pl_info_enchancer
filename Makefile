@@ -31,15 +31,25 @@ endef
 
 all: ${SCRIPT}
 
+min: ${SCRIPT}
+	${SCRIPT}.min
+
 #jquery.min.js:
 #	wget http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js -O jquery.min.js
 
-${SCRIPT}: header.js userscript.coffee
-	coffee -c userscript.coffee
+${SCRIPT}: header.js userscript.coffee Makefile
+	coffee -b -c tables.coffee
+	coffee -b -c userscript.coffee
 	perl -e '${SETHOST}' ./header.js > ${SCRIPT}
 	echo >> ${SCRIPT}
-	#cat jquery.min.js >> ${SCRIPT}
+	echo '(function(){' >> ${SCRIPT}
+	perl -MText::Iconv -e '${CONVERT}' ./tables.js | \
+		replace '###BUILD_DATE###' "`date`" >> ${SCRIPT}
+	echo >> ${SCRIPT}
+	cat jquery.min.js >> ${SCRIPT}
 	echo >> ${SCRIPT}
 	perl -MText::Iconv -e '${CONVERT}' ./userscript.js | \
 		replace '###BUILD_DATE###' "`date`" >> ${SCRIPT}
+	echo '})()' >> ${SCRIPT}
 	rm userscript.js
+	rm tables.js
