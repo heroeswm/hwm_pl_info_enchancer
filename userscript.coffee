@@ -332,15 +332,18 @@ update_unknown = (type, obj) ->
 		xhr.open('GET', "http://upd.kocharin.ru/update_plinfo.pl?type=#{escape(type)}&obj=#{escape(obj)}&v=#{version()}", true)
 		log '7'
 		xhr.onreadystatechange = ->
-			log(arguments)
+			log('ev!')
 			try
-				return unless xmlhttp.readyState == 4
-				return unless xmlhttp.status == 200
-				alert(xmlhttp.responseText)
-				result = JSON.parse(response.responseText)
+				log 'state', xhr.readyState, xhr.status
+				log(xhr.responseText)
+				return unless xhr.readyState == 4
+				return unless xhr.status == 200
+				result = JSON.parse(xhr.responseText)
 				if result.status == 'ok'
 					removeValue("upd_#{type}_#{obj}")
 					setValue("#{type}_#{obj}", result.reply.join(','))
+			catch err
+				log(err)
 		xhr.send()
 	catch err
 		log(err)

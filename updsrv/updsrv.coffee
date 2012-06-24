@@ -11,7 +11,10 @@ require('http').createServer((req, res) ->
 	type = qs.type
 	what = qs.obj
 	send = (status, rr) ->
-		res.writeHead(status, 'Content-Type': 'application/json')
+		res.writeHead(status, {
+			'Content-Type': 'application/json'
+			'Access-Control-Allow-Origin': '*'
+		})
 		res.end(JSON.stringify(rr))
 	logger.info({req:req}, 'incoming @{req.url}')
 
