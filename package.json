@@ -1,0 +1,15 @@
+{
+  "author": "Alex Kocharin <alex@kocharin.ru>",
+  "name": "hwm_pl_info_enchancer",
+  "description": "Userscript for http://heroeswm.ru/ that adds AP, TP, HP, craft and other info to the pl_info page",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/heroeswm/hwm_pl_info_enchancer.git"
+  },
+  "engines": {
+    "node": ">=0.7"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
