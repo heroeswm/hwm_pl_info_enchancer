@@ -10,6 +10,8 @@
   "engines": {
     "node": ">=0.7"
   },
-  "dependencies": {},
+  "dependencies": {
+    "hotswap": "*"
+  },
   "devDependencies": {}
 }

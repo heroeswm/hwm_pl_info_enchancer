@@ -1,5 +1,6 @@
 #!/usr/bin/env coffee
 
+require 'hotswap'
 tables = require('../tables')
 url = require 'url'
 require('fleetutils/repl')((ctx) -> )

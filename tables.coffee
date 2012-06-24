@@ -566,5 +566,6 @@ perk_table =
 		leadership: 9
 		luck: 10
 
-if module?.exports?
+if module?
 	module.exports = {perk_table, army_table, ap_table}
+	module.change_code = 1
