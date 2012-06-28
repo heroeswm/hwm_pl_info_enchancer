@@ -2,7 +2,7 @@
 // @name           HWM pl_info enchancer
 // @namespace      alex@kocharin.ru
 // @description    adds some info to the pl_info page
-// @version        10.1
+// @version        10.2
 // @include        http://*heroeswm.ru/pl_info.php*
 // @include        http://*heroeswm.com/pl_info.php*
 // @include        http://*lordswm.com/pl_info.php*
@@ -701,7 +701,7 @@ var builddate, chksum, debug, error, g_army, g_frac, g_perks, getValue, get_army
 
 debug = true;
 
-builddate = 'Thu Jun 28 13:38:06 MSK 2012';
+builddate = 'Thu Jun 28 13:40:55 MSK 2012';
 
 get_server_lang = function get_server_lang() {
   if (location.href.match(/heroeswm.ru/)) {

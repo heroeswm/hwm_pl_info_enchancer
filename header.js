@@ -2,7 +2,7 @@
 // @name           HWM pl_info enchancer
 // @namespace      alex@kocharin.ru
 // @description    adds some info to the pl_info page
-// @version        10.1
+// @version        10.2
 // @include        http://###HOST###/pl_info.php*
 // ==/UserScript==
 
