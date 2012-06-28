@@ -37,7 +37,7 @@ min: ${SCRIPT}
 #jquery.min.js:
 #	wget http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js -O jquery.min.js
 
-${SCRIPT}: header.js userscript.coffee Makefile
+${SCRIPT}: header.js userscript.coffee tables.coffee Makefile
 	coffee -b -c tables.coffee
 	coffee -b -c userscript.coffee
 	perl -e '${SETHOST}' ./header.js > ${SCRIPT}
