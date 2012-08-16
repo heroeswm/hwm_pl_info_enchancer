@@ -723,7 +723,7 @@ var builddate, chksum, debug, error, g_army, g_frac, g_perks, getValue, get_army
 
 debug = true;
 
-builddate = 'Thu Aug 16 07:07:12 MSK 2012';
+builddate = 'Thu Aug 16 07:12:29 MSK 2012';
 
 get_server_lang = function get_server_lang() {
   if (location.href.match(/heroeswm.ru/)) {
@@ -787,13 +787,13 @@ error = function error() {
 };
 
 chksum = function chksum(seed, mod) {
-  var len;
+  var len, res;
   len = seed.length;
-  chksum = 0;
+  res = 0;
   while (--len >= 0) {
-    chksum = (chksum * 6551 + seed.charCodeAt(len)) % 60000;
+    res = (res * 6551 + seed.charCodeAt(len)) % 60000;
   }
-  return chksum;
+  return res;
 };
 
 version = function version() {
@@ -1019,7 +1019,7 @@ loop_objects = function loop_objects() {
 };
 
 make_tp = function make_tp() {
-  var cp, currtree, lvl, newb, sum, _i, _len;
+  var cp, currtree, lvl, newb, sum, _i, _len, _ref;
   if (!g_frac || g_frac <= 0) return;
   if (!obj_perk) return;
   sum = 0;
@@ -1030,7 +1030,7 @@ make_tp = function make_tp() {
       currtree = false;
     } else {
       cp = cp.replace(/\d+/, "");
-      if (perk_table[g_frac][cp]) {
+      if ((_ref = perk_table[g_frac]) != null ? _ref[cp] : void 0) {
         currtree = perk_table[g_frac][cp];
         sum += currtree;
       } else {

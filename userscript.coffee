@@ -53,10 +53,10 @@ error = ->
 
 chksum = (seed, mod) ->
 	len = seed.length
-	chksum = 0
+	res = 0
 	while --len >= 0
-		chksum = (chksum*6551+seed.charCodeAt(len))%60000
-	chksum
+		res = (res*6551+seed.charCodeAt(len))%60000
+	res
 
 version = ->
 	chksum(builddate, 10000)
@@ -265,7 +265,7 @@ make_tp = ->
 			currtree = false
 		else
 			cp = cp.replace(/\d+/, "")
-			if perk_table[g_frac][cp]
+			if perk_table[g_frac]?[cp]
 				currtree = perk_table[g_frac][cp]
 				sum += currtree
 			else
