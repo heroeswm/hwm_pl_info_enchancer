@@ -610,7 +610,21 @@ army_table = {
   thaneani: [8, 100],
   thunderlordani: [8, 120],
   firedragonani: [8, 230],
-  magmadragonani: [8, 280]
+  magmadragonani: [8, 280],
+  goblinusani: [9, 3],
+  trapperani: [9, 4],
+  fcentaurani: [9, 6],
+  ncentaurani: [9, 9],
+  warriorani: [9, 12],
+  maulerani: [9, 12],
+  shamanessani: [9, 30],
+  sdaughterani: [9, 35],
+  slayerani: [9, 34],
+  executionerani: [9, 40],
+  wyvernani: [9, 90],
+  foulwyvernani: [9, 105],
+  cyclopusani: [9, 220],
+  untamedcycani: [9, 225]
 };
 
 perk_table = {
@@ -682,6 +696,14 @@ perk_table = {
     light: 8,
     leadership: 9,
     luck: 10
+  },
+  9: {
+    memoryblood: 6,
+    attack: 7,
+    enlightenment: 9,
+    leadership: 9,
+    luck: 10,
+    defense: 9
   }
 };
 
@@ -701,7 +723,7 @@ var builddate, chksum, debug, error, g_army, g_frac, g_perks, getValue, get_army
 
 debug = true;
 
-builddate = 'Thu Jun 28 13:40:55 MSK 2012';
+builddate = 'Thu Aug 16 07:07:12 MSK 2012';
 
 get_server_lang = function get_server_lang() {
   if (location.href.match(/heroeswm.ru/)) {
@@ -825,7 +847,8 @@ get_army_info = function get_army_info(army) {
   if (army_table[army] != null) {
     return army_table[army];
   } else {
-    ret = getValue('army_' + army, "");
+    ret = getValue('army_' + army, void 0);
+    if (ret == null) return;
     ret = ret.split(',');
     return ret.map(function(x) {
       return Number(x);

@@ -92,7 +92,8 @@ get_army_info = (army) ->
 	if army_table[army]?
 		army_table[army]
 	else
-		ret = getValue('army_'+army, "")
+		ret = getValue('army_'+army, undefined)
+		return undefined unless ret?
 		ret = ret.split(',')
 		ret.map (x)->Number(x)
 

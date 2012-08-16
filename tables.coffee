@@ -588,6 +588,21 @@ army_table =
 	thunderlordani: [8, 120]
 	firedragonani: [8, 230]
 	magmadragonani: [8, 280]
+	# barb
+	goblinusani: [9, 3]
+	trapperani: [9, 4]
+	fcentaurani: [9, 6]
+	ncentaurani: [9, 9]
+	warriorani: [9, 12]
+	maulerani: [9, 12]
+	shamanessani: [9, 30]
+	sdaughterani: [9, 35]
+	slayerani: [9, 34]
+	executionerani: [9, 40]
+	wyvernani: [9, 90]
+	foulwyvernani: [9, 105]
+	cyclopusani: [9, 220]
+	untamedcycani: [9, 225]
 
 perk_table =
 	1:
@@ -651,6 +666,13 @@ perk_table =
 		light: 8
 		leadership: 9
 		luck: 10
+	9:
+		memoryblood: 6
+		attack: 7
+		enlightenment: 9
+		leadership: 9
+		luck: 10
+		defense: 9
 
 if module?
 	module.exports = {perk_table, army_table, ap_table}
